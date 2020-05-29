@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+$background: #ffffff;
+$text-main: #2d3142;
+$text-light: #4f5d75;
+$color-inactive: #bfc0c0;
+$color-highlight: #ef8354;
+
+.app {
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $text-main;
+}
+
+.text-body {
+  width: 60%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Manrope';
+}
+
+h3 {
+  margin: 40px 0 0;
+  color: $text-light;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: $text-main;
+  &:hover {
+    color: $color-highlight;
+  }
+}
+
+.nav {
+  display: flex;
+  height: 80px;
+  width: 100%;
+
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &.push {
+      margin-left: auto;
+    }
+
+    &:hover {
+      color: $color-highlight;
+    }
+
+    &.router-link-exact-active {
+      color: $color-highlight;
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+  }
+}
+
+.main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-box {
+  font-family: "Roboto";
+  font-weight: 200;
+  margin-top: 20px;
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  .title {
+    font-family: "Manrope";
+    font-weight: 600;
+    color: $color-highlight;
+  }
+
+  .additional {
+    color: $text-main
+  }
+
+  .highlight {
+    font-weight: 400;
+    color: $color-highlight
+  }
+}
+
+.form-box {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 190px;
+
+  label {
+    font-family: "Roboto";
+    font-weight: 300;
+  }
+
+  .action-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    border: 1px solid $color-inactive;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: $text-light;
+    font-size: 12px;
+    font-family: "Roboto";
+  }
+
+  input[type=submit], input[type=reset] {
+    border: none;
+    padding: 6px;
+    max-width: 90px;
+    color: $text-main;
+    font-family: "Roboto";
+    font-weight: 400;
+    border-radius: 2px;
+    &:hover {
+      background-color: $text-light;
+      color: $background;
+    }
+  }
+
+  input[type=submit] {
+    background-color: $color-highlight;
+    color: $background;
+    &:hover {
+      background-color: darken($color: $color-highlight, $amount: 20);
+    }
+  }
+
+  textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 12px;
+    resize: none;
+    box-sizing: border-box;
+    border: 1px solid $color-inactive;
+    ::placeholder {
+      font-family: "Roboto";
+      font-size: 60px;
+    }
+  }
+}
+
