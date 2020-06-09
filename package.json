@@ -8,12 +8,16 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "aws-sdk": "^2.686.0",
+    "@aws-amplify/ui-vue": "^0.2.7",
+    "amazon-cognito-identity-js": "^4.3.1",
+    "aws-amplify": "^3.0.17",
+    "aws-sdk": "^2.692.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-async-computed": "^3.8.2",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "websocket-extensions": "^0.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.0",
