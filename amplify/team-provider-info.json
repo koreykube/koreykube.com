@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-koreykubecom-dev-125034-authRole",
+            "UnauthRoleArn": "arn:aws:iam::650194927327:role/amplify-koreykubecom-dev-125034-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::650194927327:role/amplify-koreykubecom-dev-125034-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-koreykubecom-dev-125034-deployment",
+            "UnauthRoleName": "amplify-koreykubecom-dev-125034-unauthRole",
+            "StackName": "amplify-koreykubecom-dev-125034",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:650194927327:stack/amplify-koreykubecom-dev-125034/09626ec0-a9fc-11ea-8ac2-0620fb4f1fdc",
+            "AmplifyAppId": "d26jxh1ouijorj"
+        },
+        "categories": {
+            "auth": {
+                "koreykubecomd3f3ad7bd3f3ad7b": {}
+            }
+        }
+    }
+}

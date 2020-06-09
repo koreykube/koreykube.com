@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -8,17 +9,26 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { requiresAuth: false }
   },
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import('../views/Contact.vue')
+    component: () => import('../views/Contact.vue'),
+    meta: { requiresAuth: false }
   },
   {
     path: '/user',
     name: 'User',
-    component: () => import('../views/User.vue')
+    component: () => import('../views/User.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
+    path: '/create-post',
+    name: 'CreatePost',
+    component: () => import('../views/CreatePost.vue'),
+    meta: { requiresAuth: true }
   }
 ]
 
@@ -27,5 +37,21 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  store.commit("setUser");
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if(!store.getters.signedIn) {
+      next({
+        path: '/',
+        query: { redirect: to.fullPath  }
+      });
+    } else {
+        next();
+    }
+  } else {
+    next();
+  }
+});
 
 export default router

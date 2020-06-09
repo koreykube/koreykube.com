@@ -15,50 +15,57 @@
         <p class="pi-body">{{item.body}}</p>
       </div>
     </div>
-    <div v-if="this.$store.getters.signedIn" class="fab">+</div>
+    <div v-if="this.$store.getters.signedIn" class="fab" v-on:click="createPost">+</div>
   </div>
 </template>
 
 <script>
-const AWS = require("aws-sdk");
+
+import AWS from 'aws-sdk';
+import store from '../store';
 
 export default {
   name: 'Home',
   data: function() {
     return {
-      posts: {}
     }
   },
-  asyncComputed: {
+  computed: {
     posts() {
-      if(this.loaded === false) {
-        return {};
-      } 
-      else {
-        const docClient = new AWS.DynamoDB.DocumentClient();
-
-        const params = {
-          TableName: "PersonalWebsitePosts",
-          FilterExpression: "#pt = :p",
-          ExpressionAttributeNames: {
-            "#pt": "posttype"
-          },
-          ExpressionAttributeValues: {
-            ":p" : "portfolio"
-          }
-        };
-        return new Promise((resolve) => {
-          docClient.scan(params, function(err, data) {
-            if(err) {
-              console.log(JSON.stringify(err));
-              resolve({});
-            } else {
-              resolve(JSON.parse(JSON.stringify(data.Items)));
-            }
-          });
-        })
-      }
+      return store.state.posts;
     }
+  },
+  methods: {
+    createPost() {
+      this.$router.push('create-post');
+    },
+    fetchPosts() {
+      const docClient = new AWS.DynamoDB.DocumentClient();
+
+      const params = {
+        TableName: "PersonalWebsitePosts",
+        FilterExpression: "#pt = :p",
+        ExpressionAttributeNames: {
+          "#pt": "posttype"
+        },
+        ExpressionAttributeValues: {
+          ":p" : "portfolio"
+        }
+      };
+      return new Promise((resolve) => {
+        docClient.scan(params, function(err, data) {
+          if(err) {
+            console.log(JSON.stringify(err));
+            resolve({});
+          } else {
+            store.commit('setPosts', data.Items);
+          }
+        });
+      })
+    }
+  },
+  mounted: function () {
+    this.fetchPosts();
   },
 }
 </script>
