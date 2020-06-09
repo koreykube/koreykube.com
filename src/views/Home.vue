@@ -10,9 +10,10 @@
     <div class="portfolio-items-holder">
       <div v-for="(item, index) in posts" :key="index" class="portfolio-item-tile">
         <img :src="item.image" class="pi-image">
-        <h2 class="pi-header">{{item.header}}</h2>
-        <p class="pi-byline">{{item.byline}}<p>
-        <p class="pi-body">{{item.body}}</p>
+        <div class="text-in-image">
+          <h2 class="pi-header">{{item.header}}</h2>
+          <p class="pi-byline">{{item.byline}}</p>
+        </div>
       </div>
     </div>
     <div v-if="this.$store.getters.signedIn" class="fab" v-on:click="createPost">+</div>
