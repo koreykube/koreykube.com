@@ -19,6 +19,12 @@ Vue.use(VueRouter)
     meta: { requiresAuth: false }
   },
   {
+    path: '/portfolio',
+    name: 'Portfolio',
+    component: () => import('../views/Portfolio.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
     path: '/user',
     name: 'User',
     component: () => import('../views/User.vue'),
@@ -29,6 +35,12 @@ Vue.use(VueRouter)
     name: 'CreatePost',
     component: () => import('../views/CreatePost.vue'),
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/About.vue'),
+    meta: { requiresAuth: false }
   }
 ]
 

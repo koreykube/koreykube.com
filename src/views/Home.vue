@@ -1,12 +1,7 @@
 <template>
   <div class="main">
     <h3>Freelance software and web developer based in Melbourne.</h3>
-    <div class="text-body">
-      <p>Hi there! I'm Korey.</p> 
-      <p>I fell in to coding making a small match-3 game for my Bejewelled-obsessed partner to announce our wedding.</p> 
-      <p>Since then I've been growing as a developer with a focus on front-end development for Vue based web applications as well as AWS S3 and Serverless for back end.</p> 
-      <p>I still make small games for friends, family and loved ones on special occasions and even you if you ask nicely.</p>
-    </div>
+    <br/>
     <div class="portfolio-items-holder">
       <div v-for="(item, index) in posts" :key="index" class="portfolio-item-tile">
         <img :src="item.image" class="pi-image">
@@ -33,7 +28,11 @@ export default {
   },
   computed: {
     posts() {
-      return store.state.posts;
+      if(store.state.posts !== null && store.state.posts.length >= 3) {
+        return store.state.posts.slice(3);
+      } else {
+        return store.state.posts;
+      }
     }
   },
   methods: {

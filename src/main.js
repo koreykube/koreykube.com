@@ -6,6 +6,10 @@ import * as AwsUi from '@aws-amplify/ui-vue'
 import Amplify from 'aws-amplify'
 import aws_exports from './aws-exports'
 import AWS from 'aws-sdk'
+import Unicon from 'vue-unicons'
+import { uniGithubAlt, uniLinkedinAlt, uniTimes, uniBars, uniSignInAlt } from 'vue-unicons/src/icons'
+
+Unicon.add([uniGithubAlt, uniLinkedinAlt, uniTimes, uniBars, uniSignInAlt]);
 
 Amplify.configure(aws_exports);
 
@@ -16,6 +20,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
 
 Vue.config.productionTip = false;
 Vue.use(AwsUi);
+Vue.use(Unicon);
 
 new Vue({
   router,

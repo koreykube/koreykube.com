@@ -9,12 +9,16 @@ $color-highlight: #ef8354;
 /*#endregion */
 
 /*#region Base app variables */
+* {
+  margin: 0px;
+}
 .app {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $text-main;
+  width: 100%;
 }
 
 .main {
@@ -60,10 +64,13 @@ a {
 
 /*#region Navbar*/
 .nav {
+  box-sizing: border-box;
   display: flex;
   height: 80px;
   width: 100%;
+  margin-top: 12px;
   color: $text-light;
+
 
   a {
     font-weight: bold;
@@ -88,6 +95,10 @@ a {
         cursor: default;
       }
     }
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
   }
 
   img {
@@ -100,6 +111,167 @@ a {
   }
 }
 /*#endregion*/
+
+/*#region Footer */
+.footer {
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+
+  .unicon {
+    fill: $text-main;
+    transition: 0.3s;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    &:hover {
+      fill: $color-highlight;
+      cursor: pointer;
+    }
+  }
+
+  
+
+  .push {
+    flex-grow: 1;
+    @media only screen and (max-width: 600px) {
+      flex-grow: 0;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    text-align: right;
+  }
+}
+/*#endregion */
+
+/*#region About page */
+.table-box {
+  width: 100%;
+
+  .column {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    text-align: left;
+    position: relative;
+
+    &.right {
+      text-align: center;
+
+      h3 {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        z-index: 4;
+
+        @media only screen and (max-width: 600px) {
+          display: block;
+          margin-left: 0px;
+          padding-right: 20px;
+          padding-left: 40px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      text-align: center;
+    }
+
+    h3 {
+      background-color: $color-highlight;
+      color: $background;
+      width: fit-content;
+      padding: 10px 20px;
+      padding-left: 40px;
+      z-index: 1;
+    }
+
+    p {
+      padding-left: 40px;
+      padding-right: 90px;
+      margin-bottom: 12px;
+
+      @media only screen and (max-width: 600px) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
+    ul {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -2%);
+      display: grid;
+      width: 60%;
+      grid-template-columns: 50% 50%;
+      background-color: $text-main;
+      color: $background;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media only screen and (max-width: 600px) {
+        position: relative;
+        width: 100%;
+        background-color: $background;
+        color: $text-main;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+    }
+
+    li {
+      display: block;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      margin-bottom: 0px;
+      font-weight: 600;
+
+      @media only screen and (max-width: 600px) {
+        padding: 6px 40px;
+        font-weight: normal;
+        margin: 0;
+        text-align: center;
+      }
+    }
+
+    .infotext {
+      padding-top: 60px;
+    }
+
+    .subhead {
+      background-color: $text-main;
+      color: $background;
+      padding: 10px 20px;
+      width: fit-content;
+      min-width: 30%;
+      position: absolute;
+      top: 80px;
+      z-index: -1;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      margin: 0px;
+    }
+  }
+}
+/*#endregion */
 
 /*#region FAB */
 .fab {
@@ -236,14 +408,12 @@ a {
     width: 400px;
     height: 400px;
     box-shadow: 0 4px 8px 0 rgba($color: #000000, $alpha: .2);
-    transition: 0.3s;
     overflow: hidden;
     position: relative;
     margin: 20px;
-    transition: 1s;
 
     &:hover {
-      box-shadow: 0 0 16px 0 rgba($color: #000000, $alpha: .6);
+      //box-shadow: 0 0 16px 0 rgba($color: #000000, $alpha: .6);
       cursor: pointer;
 
       .pi-image {
@@ -285,7 +455,7 @@ a {
         background-color: $text-main;
         padding: 10px 20px;
         position: relative;
-        top: 190px;
+        top:210px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -296,7 +466,7 @@ a {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: 1s;
+      transition: 0.3s;
     }
   }
 }
@@ -409,19 +579,40 @@ a {
 /*#endregion */
 
 /*#region Sign in page */
+.spinner {
+  top: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $text-main !important;
+}
+
 .sign-in-form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 282px;
+  height: 289px;
   margin-left: auto;
   margin-right: auto;
   color: $text-light;
+  box-shadow: 0 6px 4px 0px rgba($color: #000000, $alpha: .2);
+  border-radius: 5px;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 12px;
+  }
 
   input[type="text"], input[type="password"] {
     color: $text-main;
     text-align: center;
+    font-family: "Roboto";
     font-size: 16px;
     border: 1px solid $text-light;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 20px;
