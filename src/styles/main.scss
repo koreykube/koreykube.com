@@ -18,6 +18,7 @@ $color-highlight: #ef8354;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $text-main;
+  width: 100%;
 }
 
 .main {
@@ -63,6 +64,7 @@ a {
 
 /*#region Navbar*/
 .nav {
+  box-sizing: border-box;
   display: flex;
   height: 80px;
   width: 100%;
@@ -104,6 +106,12 @@ a {
   }
 }
 /*#endregion*/
+
+/*#region Footer */
+.footer {
+  
+}
+/*#endregion */
 
 /*#region About page */
 .table-box {
@@ -410,7 +418,7 @@ a {
         background-color: $text-main;
         padding: 10px 20px;
         position: relative;
-        top: 190px;
+        top:210px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

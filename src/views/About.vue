@@ -10,7 +10,7 @@
                     <p>I've worked many years as a policy wonk in the public service, but the slow pace finally got to me and I've made the decision to change careers.</p>
                     <p>I still make small games for friends, family and loved ones on special occasions. Even for you, if you ask nicely.</p>
                     <br/>
-                    <p>You can check out some of my work over on the <router-link to="#">portfolio</router-link> page.</p>
+                    <p>You can check out some of my work over on the <router-link to="/portfolio">portfolio</router-link> page.</p>
                 </div>
             </div>
             <div class="column right">  
