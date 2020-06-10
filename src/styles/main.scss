@@ -21,10 +21,18 @@ $color-highlight: #ef8354;
   width: 100%;
 }
 
+body {
+  margin: 0px;
+}
+
 .main {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .text-body {
@@ -40,7 +48,9 @@ h1, h2, h3, h4 {
 }
 
 h3 {
-  margin: 40px 0 0;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   color: $text-light;
 }
 
@@ -70,6 +80,7 @@ a {
   width: 100%;
   margin-top: 12px;
   color: $text-light;
+  margin-top: 6px;
 
 
   a {
@@ -412,6 +423,12 @@ a {
     position: relative;
     margin: 20px;
 
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      height: 200px;
+      margin: 0px;
+    }
+
     &:hover {
       //box-shadow: 0 0 16px 0 rgba($color: #000000, $alpha: .6);
       cursor: pointer;
@@ -444,6 +461,10 @@ a {
         position: relative;
         top: 220px;
         z-index: 2;
+
+        @media only screen and (max-width: 600px) {
+          top: 40%;
+        }
       }
       .pi-byline {
         font-weight: bold;
@@ -459,6 +480,10 @@ a {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @media only screen and (max-width: 600px) {
+          top: 25%;
+        }
       }
     }
 
