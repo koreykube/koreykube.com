@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     posts() {
-      if(store.state.posts.length >= 3) {
+      if(store.state.posts !== null && store.state.posts.length >= 3) {
         return store.state.posts.slice(3);
       } else {
         return store.state.posts;
