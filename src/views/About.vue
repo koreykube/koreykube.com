@@ -1,5 +1,6 @@
 <template>
     <div class="table-box">
+        <br />
         <div class="row">
             <div class="column">
                 <h3>Hi there! I'm Korey.</h3>
