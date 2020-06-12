@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     posts: null,
     user: null,
+    currentPost: null,
   },  
   mutations: {
     setPosts (state, payload) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
       Auth.currentUserInfo().then((response) => {
         state.user = response;
       });
+    },
+    setCurrentPost (state, post) {
+      state.currentPost = post;
     }
   },
   getters: {
