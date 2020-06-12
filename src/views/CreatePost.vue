@@ -10,6 +10,7 @@
                 <option value="portfolio">Portfolio</option>
                 <option value="blog">Blog</option>
             </select>
+            <input type="text" required placeholder="Skills used (CSV)" v-model="postDotPoints">
             <input type="file" accept="image/" required v-on:change="imageChange($event)" class="custom-file-input">
         </div>
         <button v-on:click="submitPost">Submit Post</button>
@@ -29,6 +30,7 @@ export default {
             postBody: '',
             postImage: null,
             postType: '',
+            postDotPoints: '',
         }
     },
     methods: {
@@ -66,6 +68,7 @@ export default {
                     byline: this.postByline,
                     header: this.postTitle,
                     posttype: this.postType,
+                    dotpoints: this.postDotPoints,
                     image: imageUrl
                 }
             }

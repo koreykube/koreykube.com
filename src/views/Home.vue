@@ -3,7 +3,7 @@
     <h3>Freelance software and web developer based in Melbourne.</h3>
     <br/>
     <div class="portfolio-items-holder">
-      <div v-for="(item, index) in posts" :key="index" class="portfolio-item-tile">
+      <div v-for="(item, index) in posts" :key="index" class="portfolio-item-tile" v-on:click="goToPost(item)">
         <img :src="item.image" class="pi-image">
         <div class="text-in-image">
           <h2 class="pi-header">{{item.header}}</h2>
@@ -62,6 +62,10 @@ export default {
           }
         });
       })
+    },
+    goToPost(post) {
+      this.$store.commit('setCurrentPost', post);
+      this.$router.push({name: 'Post', params: {header: post.header}});
     }
   },
   mounted: function () {

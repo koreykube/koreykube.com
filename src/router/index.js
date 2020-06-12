@@ -41,6 +41,12 @@ Vue.use(VueRouter)
     name: 'About',
     component: () => import('../views/About.vue'),
     meta: { requiresAuth: false }
+  },
+  {
+    path:'/post/:header',
+    name: 'Post',
+    component: () => import('../views/Post.vue'),
+    meta: { requiresAuth: false }
   }
 ]
 
