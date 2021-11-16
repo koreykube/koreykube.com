@@ -11,7 +11,7 @@
     "@aws-amplify/ui-vue": "^0.2.7",
     "amazon-cognito-identity-js": "^4.3.1",
     "aws-amplify": "^3.0.17",
-    "aws-sdk": "^2.692.0",
+    "aws-sdk": "^2.814.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-loading-spinner": "^1.0.11",
